@@ -1,7 +1,7 @@
 CC = g++
 
 OBJS = main.cpp
-OBJ_NAME = output
+OBJ_NAME = game.out
 
 COMPILER_FLAGS = -w
 LINKER_FLAGS = -lSDL2

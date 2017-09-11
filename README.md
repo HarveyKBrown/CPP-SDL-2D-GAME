@@ -1,11 +1,11 @@
 # C-SDL-2D-GAME
 
 A simple implementation of SDL2 and SDL2 image to create a game engine featuring;
-  DeltaTime
-  InputHandeling
-  TextureManagement
-  CollisonDetection
-  2DVectors
+  DeltaTime,
+  InputHandeling,
+  TextureManagement,
+  CollisonDetection,
+  2DVectors,
   and a core game loop implementation
 
 The engine comes with a complete development toolchain for cross-development on windows and linux operating systems through the use of CMAKE

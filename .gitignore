@@ -1,5 +1,4 @@
 bin/*
 Backup.txt
-FindSDL2_image.cmake
 out*
 *.gch

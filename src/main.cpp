@@ -10,6 +10,8 @@ int main( int argc, char* args[] )
 
 	while (game->running())
 	{
+		/* Init deltatime counter */
+		game->NOW = SDL_GetPerformanceCounter();
 		game->handleEvents();
 		game->update();
 		game->render();

@@ -65,10 +65,17 @@ void Game::handleEvents()
 }
 
 void Game::update()
-{}
+{
+	/* DeltaTime */
+	LAST = NOW;
+	NOW = SDL_GetPerformanceCounter();
+	deltaTime = (double)((NOW - LAST) * 1000 / SDL_GetPerformanceFrequency() );
+
+}
 
 void Game::render()
 {
+
 	SDL_RenderClear( renderer );
 	SDL_RenderCopy( renderer, playerTexture, NULL, NULL );
 	SDL_RenderPresent( renderer );

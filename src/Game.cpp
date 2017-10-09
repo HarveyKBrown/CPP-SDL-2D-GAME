@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "TextureManager.h"
+#include "stdio.h"
 
 SDL_Texture* playerTexture;
 
@@ -64,18 +65,23 @@ void Game::handleEvents()
 	}
 }
 
-void Game::update()
+void Game::calculateDelta()
 {
 	/* DeltaTime */
 	LAST = NOW;
 	NOW = SDL_GetPerformanceCounter();
 	deltaTime = (double)((NOW - LAST) * 1000 / SDL_GetPerformanceFrequency() );
+	printf("DeltaTime : %f \n", deltaTime);
+}
+
+void Game::update()
+{
 
 }
 
 void Game::render()
 {
-
+	/* Draw a bee, because why not */
 	SDL_RenderClear( renderer );
 	SDL_RenderCopy( renderer, playerTexture, NULL, NULL );
 	SDL_RenderPresent( renderer );

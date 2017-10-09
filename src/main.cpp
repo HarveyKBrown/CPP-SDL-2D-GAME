@@ -13,6 +13,7 @@ int main( int argc, char* args[] )
 		/* Init deltatime counter */
 		game->NOW = SDL_GetPerformanceCounter();
 		game->handleEvents();
+		game->calculateDelta();
 		game->update();
 		game->render();
 	}

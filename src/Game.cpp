@@ -71,7 +71,6 @@ void Game::calculateDelta()
 	LAST = NOW;
 	NOW = SDL_GetPerformanceCounter();
 	deltaTime = (double)((NOW - LAST) * 1000) / SDL_GetPerformanceFrequency();
-	printf("DeltaTime : %f \n", deltaTime);
 }
 
 void Game::update()

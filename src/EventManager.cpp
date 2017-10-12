@@ -1,6 +1,6 @@
 #include "EventManager.h"
 
-void handleEvents()
+void EventManager::handleEvents()
 {
   SDL_Event event;
   SDL_PollEvent(&event);
@@ -11,6 +11,7 @@ void handleEvents()
       //isRunning = false;
       break;
 
+    /* If keys */
     default:
       break;
   }

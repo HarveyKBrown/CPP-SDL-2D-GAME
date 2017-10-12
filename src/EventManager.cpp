@@ -16,3 +16,8 @@ void EventManager::handleEvents()
       break;
   }
 }
+
+void EventManager::registerAction(char* actionName, void (*f) (void))
+{
+  actionMap[actionName] = f;
+}

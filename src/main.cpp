@@ -1,5 +1,4 @@
 #include "Game.h"
-#include "EventManager.h"
 
 Game* game = NULL;
 
@@ -13,7 +12,7 @@ int main( int argc, char* args[] )
 	{
 		/* Init deltatime counter */
 		game->NOW = SDL_GetPerformanceCounter();
-		EventManager::handleEvents();
+		game->handleEvents();
 		game->calculateDelta();
 		game->update();
 		game->render();

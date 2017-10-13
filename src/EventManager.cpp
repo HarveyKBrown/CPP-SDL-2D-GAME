@@ -17,7 +17,7 @@ void EventManager::handleEvents()
   }
 }
 
-void EventManager::registerAction(char* actionName, void (*f) (void))
+static void EventManager::registerAction(char* actionName, void (*f) (void))
 {
   actionMap[actionName] = f;
 }

@@ -50,11 +50,6 @@ bool Game::init(const char* title, int width, int height, bool fullscreen)
 	return true;
 }
 
-void Game::handleEvents()
-{
-	EventManager::handleEvents();
-}
-
 void Game::calculateDelta()
 {
 	/* DeltaTime */

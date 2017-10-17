@@ -16,8 +16,7 @@ public:
 	Uint64 NOW;
 	double deltaTime;
 
-	bool init(const char* title, int width, int height, bool fullscreen);
-	void handleEvents();
+	bool init(const char* title, int width, int height, bool fullscreen);	
 	void calculateDelta();
 	void update();
 	void render();

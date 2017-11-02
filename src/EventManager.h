@@ -3,6 +3,7 @@
 
 #include "Game.h"
 #include <map>
+#include <functional>
 
 class EventManager
 {
@@ -11,7 +12,7 @@ class EventManager
     static std::map<char*, void*> actionMap;
 
   public:
-    static void registerAction(char* actionName, void (*f) (void));
+    static void registerAction(char* actionName, std::function<void*> const& f);
     //controller will resolve actionNames from keys using a master key list
     static void handleEvents();
 

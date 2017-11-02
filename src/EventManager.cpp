@@ -17,7 +17,7 @@ void EventManager::handleEvents()
   }
 }
 
-void EventManager::registerAction(char* actionName, void (*f) (void))
+void EventManager::registerAction(char* actionName, std::function<void*> const& f)
 {
   actionMap[actionName] = f;
 }

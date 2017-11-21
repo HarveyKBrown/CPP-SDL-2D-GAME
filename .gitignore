@@ -1,5 +1,4 @@
 bin/*
-Backup.txt
 out*
 *.gch
-.vs
+*.swp

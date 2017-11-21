@@ -7,14 +7,15 @@
 
 class EventManager
 {
-  private:
-    //Action name to registered functions map
-    static std::map<char*, void*> actionMap;
+	private:
+	
+	public:
+		enum Code { quit, jump, up, down, left, right };
 
-  public:
-    static void registerAction(char* actionName, std::function<void*> const& f);
-    //controller will resolve actionNames from keys using a master key list
-    static void handleEvents();
+		static void registerEvent(int eventCode, std::function<void()> f);
+
+		//controller will resolve actionNames from keys using a master key list
+		static void handleEvents();
 
 };
 

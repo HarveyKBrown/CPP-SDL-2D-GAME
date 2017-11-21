@@ -14,21 +14,21 @@ bool Game::init(const char* title, int width, int height, bool fullscreen)
 {
 	isRunning = true;
 
-	//Set fullscreen flag
+	/* Set fullscreen flag */
 	int flags = 0;
 	if (fullscreen)
 	{
 		flags = SDL_WINDOW_BORDERLESS;
 	}
 
-	//Initialize SDL
+	/* Initialize SDL */
 	if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
 	{
 		std::cout << "SDL could not initialize! SDL_Error: %s\n" << SDL_GetError() << std::endl;
 		return false;
 	}
 
-	//Create window
+	/* Create window */
 	window = SDL_CreateWindow( title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, flags );
 	if( window == NULL )
 	{
@@ -36,13 +36,17 @@ bool Game::init(const char* title, int width, int height, bool fullscreen)
 		return false;
 	}
 
-	//Create renderer for window
+	/* Create renderer for window */
 	renderer = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED );
 	if( renderer == NULL )
 	{
 		std::cout <<  "Renderer could not be created! SDL Error: %s\n" << SDL_GetError() << std::endl;
 		return false;
 	}
+
+	/* Register the window quit control function */ 
+	EventManager::registerEvent(EventManager::quit, [&] () { isRunning = false; });
+
 	SDL_SetRenderDrawColor( renderer, 0xFF, 0x00, 0xFF, 0xFF );
 
 	playerTexture = TextureManager::loadTexture("assets/bee.png", renderer);

@@ -1,23 +1,27 @@
 #include "EventManager.h"
 
+/* EventCode -> EventLambda */
+std::map<int, std::function<void()>> eventMap;
+
 void EventManager::handleEvents()
 {
-  SDL_Event event;
-  SDL_PollEvent(&event);
-  switch (event.type)
-  {
-    case SDL_QUIT:
-    /*swap this to a registered action in the map, main game controller will register quit */
-      //isRunning = false;
-      break;
+	SDL_Event event;
+	SDL_PollEvent(&event);
 
-    /* If keys */
-    default:
-      break;
-  }
+	switch (event.type)
+	{
+	/* Quit Event */
+	case SDL_QUIT:
+		eventMap[quit]();
+		break;
+
+	/* If keys */
+	default:
+		break;
+	}
 }
 
-void EventManager::registerAction(char* actionName, std::function<void*> const& f)
+void EventManager::registerEvent(int eventCode, std::function<void()> f)
 {
-  actionMap[actionName] = f;
+	eventMap[eventCode] = f;
 }

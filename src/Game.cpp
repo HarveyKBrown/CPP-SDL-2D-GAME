@@ -47,7 +47,7 @@ bool Game::init(const char* title, int width, int height, bool fullscreen)
 	/* Register the window quit control function */ 
 	EventManager::registerEvent(EventManager::quit, [&] () { isRunning = false; });
 
-	SDL_SetRenderDrawColor( renderer, 0xFF, 0x00, 0xFF, 0xFF );
+	SDL_SetRenderDrawColor( renderer, 0xFF, 0x00, 0x00, 0xFF );
 
 	playerTexture = TextureManager::loadTexture("assets/bee.png", renderer);
 

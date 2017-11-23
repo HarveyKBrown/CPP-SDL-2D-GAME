@@ -1,4 +1,5 @@
 #include "Game.h"
+#include <stdio.h>
 #include "TextureManager.h"
 #include "EventManager.h"
 
@@ -47,6 +48,9 @@ bool Game::init(const char* title, int width, int height, bool fullscreen)
 	/* Register the window quit control function */ 
 	EventManager::registerEvent(EventManager::quit, [&] () { isRunning = false; });
 
+	/* Set initial deltatime variable */
+	NOW = SDL_GetPerformanceCounter();
+
 	SDL_SetRenderDrawColor( renderer, 0xFF, 0x00, 0x00, 0xFF );
 
 	playerTexture = TextureManager::loadTexture("assets/bee.png", renderer);
@@ -59,7 +63,8 @@ void Game::calculateDelta()
 	/* DeltaTime */
 	LAST = NOW;
 	NOW = SDL_GetPerformanceCounter();
-	deltaTime = (double)((NOW - LAST) * 1000) / SDL_GetPerformanceFrequency();
+	deltaTime = (double)(((NOW - LAST) * 1000)) / SDL_GetPerformanceFrequency();
+	printf("DeltaTime: %f\n", deltaTime);
 }
 
 void Game::update()

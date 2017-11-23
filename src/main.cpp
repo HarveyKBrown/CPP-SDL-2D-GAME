@@ -11,8 +11,6 @@ int main( int argc, char* args[] )
 
 	while (game->running())
 	{
-		/* Init deltatime counter */
-		game->NOW = SDL_GetPerformanceCounter();
 		EventManager::handleEvents();
 		game->calculateDelta();
 		game->update();

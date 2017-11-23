@@ -1,5 +1,4 @@
 #include "Game.h"
-#include <stdio.h>
 #include "TextureManager.h"
 #include "EventManager.h"
 
@@ -64,7 +63,6 @@ void Game::calculateDelta()
 	LAST = NOW;
 	NOW = SDL_GetPerformanceCounter();
 	deltaTime = (double)(((NOW - LAST) * 1000)) / SDL_GetPerformanceFrequency();
-	printf("DeltaTime: %f\n", deltaTime);
 }
 
 void Game::update()

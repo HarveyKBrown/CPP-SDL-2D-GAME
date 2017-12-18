@@ -1,0 +1,3 @@
+/home/harvey/Programming/SDL2_ENGINE/src/CMakeFiles/rebuild_cache.dir
+/home/harvey/Programming/SDL2_ENGINE/src/CMakeFiles/out.dir
+/home/harvey/Programming/SDL2_ENGINE/src/CMakeFiles/edit_cache.dir

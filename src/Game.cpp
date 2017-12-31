@@ -44,7 +44,7 @@ bool Game::init(const char* title, int width, int height, bool fullscreen)
 		return false;
 	}
 
-	/* Register the window quit control function */ 
+	/* Register the window quit control function */
 	EventManager::registerEvent(EventManager::quit, [&] () { isRunning = false; });
 
 	/* Set initial deltatime variable */

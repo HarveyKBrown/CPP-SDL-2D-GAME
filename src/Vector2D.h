@@ -1,25 +1,34 @@
+#ifndef VECTOR2D_H
+#define VECTOR2D_H
+
 class Vector2D
 {
 	public:
-		float x;
-		float y;
+		float x, y;
 
 		Vector2D();
 		Vector2D(float x, float y);
 
-		void multiply(float a);
-		void divide(float a);
-		void add(Vector2D a);
-		void subtract(Vector2D a);
+		Vector2D& add(const Vector2D& v);
+		Vector2D& subtract(const Vector2D& v);
+		Vector2D& multiply(const float& s);
+		Vector2D& divide(const float& s);
+		Vector2D& normalize();
+		float length();
 
-		Vector2D& operator+(Vector2D a, Vector2D b);
-		Vector2D& operator-(Vector2D a, Vector2D b);
-		Vector2D& operator/(Vector2D a, float a);
-		Vector2D& operator*(Vector2D a, float a);
+		friend Vector2D& operator+(Vector2D v1, const Vector2D v2);
+		friend Vector2D& operator-(Vector2D v1, const Vector2D v2);
+		friend Vector2D& operator*(Vector2D v1, const float s);
+		friend Vector2D& operator/(Vector2D v1, const float s);
 
-		void operator+=(Vector2D a);
-		void operator-=(Vector2D a);
-		void operator/=(float a);
-		void operator*=(float a);
+		Vector2D& operator+=(const Vector2D v);
+		Vector2D& operator-=(const Vector2D v);
+		Vector2D& operator/=(const float s);
+		Vector2D& operator*=(const float s);
+		bool operator!=(const Vector2D v);
+		bool operator==(const Vector2D v);
 
+		Vector2D& zero();
 };
+
+#endif

@@ -8,7 +8,7 @@
 class EventManager
 {
 	private:
-	
+
 	public:
 		enum Code { quit, jump, up, down, left, right };
 

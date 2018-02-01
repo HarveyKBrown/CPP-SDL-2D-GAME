@@ -1,6 +1,7 @@
 #include "Game.h"
 #include "TextureManager.h"
 #include "EventManager.h"
+#include <iostream>
 
 SDL_Texture* playerTexture;
 
@@ -12,7 +13,6 @@ Game::~Game()
 /* initialize SDL */
 bool Game::init(const char* title, int width, int height, bool fullscreen)
 {
-	isRunning = true;
 
 	/* Set fullscreen flag */
 	int flags = 0;
@@ -44,7 +44,7 @@ bool Game::init(const char* title, int width, int height, bool fullscreen)
 		return false;
 	}
 
-	/* Register the window quit control function */ 
+	/* Register the window quit control function */
 	EventManager::registerEvent(EventManager::quit, [&] () { isRunning = false; });
 
 	/* Set initial deltatime variable */
@@ -53,6 +53,8 @@ bool Game::init(const char* title, int width, int height, bool fullscreen)
 	SDL_SetRenderDrawColor( renderer, 0xFF, 0x00, 0x00, 0xFF );
 
 	playerTexture = TextureManager::loadTexture("assets/bee.png", renderer);
+
+	isRunning = true;
 
 	return true;
 }
